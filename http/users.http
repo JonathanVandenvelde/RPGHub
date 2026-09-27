@@ -1,0 +1,17 @@
+###
+# GET
+GET http://localhost:3000/user/pseudo/Vivegriffe HTTP/1.1
+
+###
+# POST
+POST http://localhost:3000/user/
+Content-Type: application/json
+
+{
+    "pseudo": "Vivegriffe",
+    "email": "gareth.vivegriffe@mailfence.com",
+    "role": "user",
+    "motDePasse": "Test1234",
+    "avatar": "avatar.png",
+    "dateDeNaissance": "1995-02-04"
+}

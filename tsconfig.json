@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",               // version de JS générée
+    "module": "nodenext",             // modules adaptés à Node
+    "moduleResolution": "nodenext",   // résolution des imports comme Node
+    "rootDir": "src",                 // code source TypeScript
+    "outDir": "dist",                 // JavaScript compilé (npm run build)
+    "esModuleInterop": true,          // permet import express from 'express'
+    "strict": true                    // vérifications de typage strictes
+  },
+  "include": ["src/**/*.ts"]          // seuls les fichiers de src sont compilés
+}
