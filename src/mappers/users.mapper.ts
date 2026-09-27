@@ -1,17 +1,28 @@
-import { NewUser, NewUserDTO, User, UserDBO, UserDTO } from "../models/users.model";
+import { NewUser, NewUserDTO, User, UserDBO, UserDTO, UserShortDTO } from "../models/users.model";
 
 export class UserMapper{
     static toDTO = (user : User): UserDTO => {
         return {
-            //id: user.id,
+            id: user.id,
             pseudo: user.pseudo,
-            //email: user.email,
-            //role: user.role,
+            email: user.email,
+            role: user.role,
             avatar: user.avatar,
             dateDeNaissance: user.dateDeNaissance.toISOString(),
-            // lastSession: user.lastSession.toISOString(),
-            //createdAt: user.createdAt.toISOString(),
-            //updatedAt: user.updatedAt.toISOString(),
+            lastSession: user.lastSession.toISOString(),
+            createdAt: user.createdAt.toISOString(),
+            updatedAt: user.updatedAt.toISOString(),
+        }
+    }
+
+ static toShortDTO = (user : User): UserShortDTO => {
+        return {
+            id: user.id,
+            pseudo: user.pseudo,
+            avatar: user.avatar,
+            dateDeNaissance: user.dateDeNaissance.toISOString(),
+            createdAt: user.createdAt.toISOString(),
+            updatedAt: user.updatedAt.toISOString(),
         }
     }
 
@@ -59,11 +70,10 @@ export class UserMapper{
         }
     }
 
-    static fromNewUserDTO = (newUser : NewUserDTO) : NewUser =>{
+    static fromNewDTO = (newUser : NewUserDTO) : NewUser =>{
         return {
             pseudo: newUser.pseudo,
             email: newUser.email,
-            role: newUser.role,
             motDePasse: newUser.motDePasse,
             avatar: newUser.avatar,
             dateDeNaissance: new Date(newUser.dateDeNaissance),

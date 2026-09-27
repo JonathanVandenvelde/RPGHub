@@ -16,11 +16,11 @@ export interface User extends BasicModel {
 
 export interface UserDTO extends BasicModelDTO {
     pseudo: string;
-    //email: string;
-    //role: ERole;
+    email: string;
+    role: ERole;
     avatar?: string;
     dateDeNaissance: string;
-    //lastSession: string;
+    lastSession: string;
 }
 
 export interface UserDBO extends BasicModelDBO {
@@ -36,7 +36,6 @@ export interface UserDBO extends BasicModelDBO {
 export interface NewUser {
     pseudo: string;
     email: string;
-    role: ERole.USER;
     motDePasse: string;
     avatar?: string;
     dateDeNaissance: Date;
@@ -45,8 +44,14 @@ export interface NewUser {
 export interface NewUserDTO {
     pseudo: string;
     email: string;
-    role: ERole.USER;
     motDePasse: string;
+    avatar?: string;
+    dateDeNaissance: string;
+}
+
+
+export interface UserShortDTO extends BasicModelDTO {
+    pseudo: string;
     avatar?: string;
     dateDeNaissance: string;
 }

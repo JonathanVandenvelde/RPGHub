@@ -1,4 +1,5 @@
 import { LoggerService } from "../services/logger.service";
+import { NewUserDTO, User } from "../models/users.model";
 
 /**
  * Type guards : fonctions qui vérifient à l'exécution qu'une valeur inconnue
@@ -20,4 +21,12 @@ export function isNonEmptyString(obj: any): obj is string {
 
 export function isObject(obj: any): obj is object {
   return typeof obj === "object" && obj !== null;
+}
+
+// ==== USER ====
+
+export function isNewUserDTO(obj: any): obj is NewUserDTO {
+  return isObject(obj) && isNonEmptyString((obj as any).pseudo) && isNonEmptyString((obj as any).email)
+  && isNonEmptyString((obj as any).motDePasse) && isNonEmptyString((obj as any).avatar)
+  && isNonEmptyString((obj as any).dateDeNaissance);      
 }
